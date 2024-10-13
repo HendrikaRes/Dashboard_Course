@@ -1,0 +1,196 @@
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #3e5d7c;
+  padding-top: 20px;
+  color: white;
+  transition: width 0.5s;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+}
+.sidebar.collapsed {
+  width: 50px; /* Sidebar hanya selebar 50px */
+}
+
+.sidebar.collapsed .nav-link,
+.sidebar.collapsed h5,
+.sidebar.collapsed img {
+  visibility: hidden; /* Semua konten dalam sidebar disembunyikan */
+  opacity: 0; /* Menghilangkan konten secara visual dengan transisi */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar h5,
+.sidebar .nav-link,
+.sidebar img {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar h5 {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar .nav-link {
+  color: #cfd8dc;
+  font-weight: 500;
+}
+
+.sidebar .nav-link:hover {
+  color: white;
+}
+
+.toggle-sidebar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.toggle-sidebar:focus {
+  outline: none;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 40px;
+  width: 100%;
+  transition: margin-left 0.5s;
+}
+
+.content.sidebar-collapsed {
+  margin-left: 50px;
+}
+
+.profile-bar {
+  width: 100%;
+  background-color: #3e5d7c; /* Warna latar belakang bar */
+  padding: 10px 20px;
+  color: white; /* Warna teks */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sedikit bayangan untuk efek */
+}
+
+/* Styling bagian dalam profil (gambar + nama) */
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-section img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-section .username {
+  font-weight: bold;
+  color: white; /* Warna teks di dalam bar */
+}
+
+.content {
+  margin-top: 70px; /* Memberi jarak dengan bar profil */
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.progress {
+  height: 20px;
+  border-radius: 10px;
+}
+
+.alert {
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.toggle-sidebar {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #282a2c;
+  border: none;
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Memberi bayangan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease; /* Animasi saat diklik */
+  cursor: pointer;
+}
+
+.toggle-sidebar i {
+  font-size: 18px;
+  color: #3e5d7c; /* Warna ikon */
+  transition: transform 0.3s ease; /* Animasi rotasi ikon */
+}
+
+/* Rotasi ikon saat sidebar ditutup */
+.toggle-sidebar.collapsed i {
+  transform: rotate(180deg); /* Rotasi 180 derajat */
+}
+
+/* Tombol di mode collapsed */
+.sidebar.collapsed + .content .toggle-sidebar {
+  transform: translateX(-100px); /* Memindahkan tombol saat sidebar tertutup */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .toggle-sidebar {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .toggle-sidebar i {
+    font-size: 16px;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .content {
+    margin-left: 0;
+  }
+  .profile-section {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 20px;
+  }
+  .progress {
+    height: 15px;
+  }
+}

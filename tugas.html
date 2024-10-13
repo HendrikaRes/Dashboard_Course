@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Tugas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Logo Gambar -->
+      <div class="text-center mb-3">
+        <img src="asset/logo2.png" alt="Logo" class="img-fluid" style="width: 80px; height: auto" />
+      </div>
+      <h5 class="text-center">EduSchool</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Kursus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="tugas.html">Tugas</a>
+        </li>
+      </ul>
+      <!-- Toggle button -->
+      <button class="btn toggle-sidebar" id="toggle-sidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="content">
+      <!-- Profil di bagian atas dalam bar -->
+      <div class="profile-bar">
+        <div class="profile-section">
+          <img src="asset/foto.jpg" alt="Profile Picture" />
+          <span class="username">Hendrika</span>
+        </div>
+      </div>
+
+      <!-- Daftar Tugas -->
+      <div class="alert alert-warning mt-4" role="alert">Daftar Tugas Belum Dikerjakan !!!!</div>
+      <div class="row">
+        <!-- Tugas 1 -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tugas: Ujian Bab 1</h5>
+              <p class="card-text">Batas Waktu: 12 Oktober 2024</p>
+              <a href="#" class="btn btn-primary">Kerjakan Tugas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tugas 2 -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tugas: Project UI/UX</h5>
+              <p class="card-text">Batas Waktu: 15 Oktober 2024</p>
+              <a href="#" class="btn btn-primary">Kerjakan Tugas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tugas 3 -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tugas: Analisis Data</h5>
+              <p class="card-text">Batas Waktu: 20 Oktober 2024</p>
+              <a href="#" class="btn btn-primary">Kerjakan Tugas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      const toggleSidebar = document.getElementById("toggle-sidebar");
+      const sidebar = document.querySelector(".sidebar");
+      const content = document.querySelector(".content");
+
+      toggleSidebar.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        content.classList.toggle("sidebar-collapsed");
+        toggleSidebar.classList.toggle("collapsed");
+
+        const icon = toggleSidebar.querySelector("i");
+        if (sidebar.classList.contains("collapsed")) {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        } else {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        }
+      });
+    </script>
+  </body>
+</html>
