@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Diskusi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="text-center mb-3">
+        <img src="asset/logo2.png" alt="Logo" class="img-fluid" style="width: 80px; height: auto; margin-top: 50px" />
+      </div>
+      <h5 class="text-center">EduSchool</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">
+            <i class="fas fa-book"></i>
+            <span class="link-text">Kursus</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tugas.html">
+            <i class="fas fa-tasks"></i>
+            <span class="link-text">Tugas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="forum.html">
+            <i class="fas fa-comments"></i>
+            <span class="link-text">Forum Diskusi</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pengaturan.html">
+            <i class="fas fa-cog"></i>
+            <span class="link-text">Pengaturan</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.html">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="link-text">Keluar</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Toggle button -->
+      <button class="btn toggle-sidebar" id="toggle-sidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="content">
+      <div class="profile-bar">
+        <div class="profile-section">
+          <img src="asset/foto.jpg" alt="Profile Picture" />
+          <span class="username">Hendrika</span>
+        </div>
+      </div>
+
+      <h2 class="mt-4">Forum Diskusi</h2>
+      <section class="topic-form">
+        <h3>Tambah Topik Diskusi</h3>
+        <form id="add-topic-form">
+          <input type="text" id="topic-title" placeholder="Judul Topik" required />
+          <textarea id="topic-description" placeholder="Deskripsi Topik" required></textarea>
+          <button type="submit">Tambah Topik</button>
+        </form>
+      </section>
+
+      <section class="topics-list">
+        <h3>Daftar Topik</h3>
+        <div class="topic" id="topic-list"></div>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Script untuk menambahkan topik baru
+      document.getElementById("add-topic-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const title = document.getElementById("topic-title").value;
+        const description = document.getElementById("topic-description").value;
+
+        const topicDiv = document.createElement("div");
+        topicDiv.className = "topic mb-3";
+        topicDiv.innerHTML = `<h5>${title}</h5><p>${description}</p>`;
+
+        document.getElementById("topic-list").appendChild(topicDiv);
+
+        // Kosongkan input setelah menambah
+        document.getElementById("topic-title").value = "";
+        document.getElementById("topic-description").value = "";
+      });
+
+      // Toggle Sidebar
+      const toggleSidebar = document.getElementById("toggle-sidebar");
+      const sidebar = document.querySelector(".sidebar");
+      const content = document.querySelector(".content");
+
+      toggleSidebar.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        content.classList.toggle("sidebar-collapsed");
+        toggleSidebar.classList.toggle("collapsed");
+
+        const icon = toggleSidebar.querySelector("i");
+        if (sidebar.classList.contains("collapsed")) {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        } else {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        }
+      });
+    </script>
+  </body>
+</html>
