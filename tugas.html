@@ -15,17 +15,47 @@
     <div class="sidebar">
       <!-- Logo Gambar -->
       <div class="text-center mb-3">
-        <img src="asset/logo2.png" alt="Logo" class="img-fluid" style="width: 80px; height: auto" />
+        <img src="asset/logo2.png" alt="Logo" class="img-fluid" style="width: 80px; height: auto; margin-top: 20px" />
       </div>
       <h5 class="text-center">EduSchool</h5>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">Kursus</a>
+          <a class="nav-link active" href="dashboard.html">
+            <i class="fas fa-book"></i>
+            <!-- Ikon Kursus -->
+            <span class="link-text">Kursus</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="tugas.html">Tugas</a>
+          <a class="nav-link" href="tugas.html">
+            <i class="fas fa-tasks"></i>
+            <!-- Ikon Tugas -->
+            <span class="link-text">Tugas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="forum.html">
+            <i class="fas fa-comments"></i>
+            <!-- Ikon Forum Diskusi -->
+            <span class="link-text">Forum Diskusi</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pengaturan.html">
+            <i class="fas fa-cog"></i>
+            <!-- Ikon Pengaturan -->
+            <span class="link-text">Pengaturan</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.html">
+            <i class="fas fa-sign-out-alt"></i>
+            <!-- Ikon Keluar -->
+            <span class="link-text">Keluar</span>
+          </a>
         </li>
       </ul>
+
       <!-- Toggle button -->
       <button class="btn toggle-sidebar" id="toggle-sidebar">
         <i class="fas fa-bars"></i>
